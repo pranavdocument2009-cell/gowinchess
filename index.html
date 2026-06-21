@@ -1,468 +1,1437 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GoWin Chess Academy | Online Chess Classes</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GoWin Chess Academy | Online Chess Classes for Kids & Beginners</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #e94560;
+            --accent-hover: #d63050;
+            --gold: #f4a261;
+            --light: #f8f9fa;
+            --dark: #0f0f23;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --whatsapp: #25d366;
+            --whatsapp-hover: #128c7e;
+        }
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-body{
-background:#ffffff;
-color:#222;
-line-height:1.6;
-}
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
 
-.container{
-width:90%;
-max-width:1200px;
-margin:auto;
-}
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-section{
-padding:80px 0;
-}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-h1,h2,h3{
-margin-bottom:15px;
-}
+        .logo i {
+            color: var(--gold);
+        }
 
-p{
-color:#666;
-}
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
 
-.btn{
-display:inline-block;
-padding:15px 30px;
-border-radius:50px;
-text-decoration:none;
-font-weight:600;
-margin:10px;
-transition:.3s;
-}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-.whatsapp{
-background:#25D366;
-color:#fff;
-}
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-.call{
-background:#111;
-color:#fff;
-}
+        .nav-btn {
+            background: var(--accent);
+            color: white !important;
+            padding: 10px 25px;
+            border-radius: 50px;
+        }
 
-.btn:hover{
-transform:translateY(-3px);
-}
+        .nav-btn:hover {
+            background: var(--accent-hover);
+        }
 
-.hero{
-background:linear-gradient(135deg,#0f172a,#1e293b);
-color:white;
-text-align:center;
-padding:100px 20px;
-}
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--dark) 100%);
+            display: flex;
+            align-items: center;
+            padding: 120px 20px 80px;
+            position: relative;
+            overflow: hidden;
+        }
 
-.hero p{
-color:#ddd;
-font-size:18px;
-margin-bottom:20px;
-}
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="80" opacity="0.03">♟</text></svg>');
+            background-size: 100px 100px;
+            animation: float 20s linear infinite;
+        }
 
-.badges{
-margin-top:25px;
-display:flex;
-justify-content:center;
-gap:20px;
-flex-wrap:wrap;
-}
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); }
+            100% { transform: translateY(-50px) rotate(5deg); }
+        }
 
-.badge{
-background:rgba(255,255,255,.1);
-padding:12px 18px;
-border-radius:30px;
-}
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
 
-.section-title{
-text-align:center;
-font-size:36px;
-margin-bottom:50px;
-}
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
 
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:25px;
-}
+        .hero-content h1 span {
+            color: var(--gold);
+        }
 
-.card{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-text-align:center;
-}
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
 
-.program-card{
-padding:40px 30px;
-}
+        .hero-content .desc {
+            font-size: 1.1rem;
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 30px;
+            max-width: 500px;
+        }
 
-.price{
-font-size:32px;
-font-weight:700;
-color:#25D366;
-margin:20px 0;
-}
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 35px;
+        }
 
-.benefits .card{
-font-size:18px;
-font-weight:600;
-}
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: white;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-.testimonial{
-background:#f8fafc;
-}
+        .badge i {
+            font-size: 1.1rem;
+        }
 
-.review{
-background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
+        .badge .green { color: #2ecc71; }
+        .badge .gold { color: var(--gold); }
+        .badge .blue { color: #74b9ff; }
 
-.demo{
-background:linear-gradient(135deg,#111827,#1e293b);
-color:white;
-text-align:center;
-}
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-.demo p{
-color:#ddd;
-}
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 35px;
+            border-radius: 50px;
+            font-size: 1.05rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
 
-.faq-item{
-background:#fff;
-padding:25px;
-margin-bottom:20px;
-border-radius:15px;
-box-shadow:0 5px 15px rgba(0,0,0,.08);
-}
+        .btn-whatsapp {
+            background: var(--whatsapp);
+            color: white;
+            box-shadow: 0 10px 30px rgba(37, 211, 102, 0.3);
+        }
 
-footer{
-background:#111827;
-color:white;
-text-align:center;
-padding:40px 20px;
-}
+        .btn-whatsapp:hover {
+            background: var(--whatsapp-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
 
-footer p{
-color:#ddd;
-}
+        .btn-demo {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
 
-@media(max-width:768px){
+        .btn-demo:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+            transform: translateY(-3px);
+        }
 
-.hero h1{
-font-size:34px;
-}
+        .hero-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
-.section-title{
-font-size:28px;
-}
+        .chess-board {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(145deg, #2d3436, #1a1a2e);
+            border-radius: 20px;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            grid-template-rows: repeat(8, 1fr);
+            padding: 15px;
+            gap: 2px;
+            position: relative;
+            animation: boardFloat 6s ease-in-out infinite;
+        }
 
-}
-</style>
+        @keyframes boardFloat {
+            0%, 100% { transform: translateY(0) rotateX(5deg); }
+            50% { transform: translateY(-20px) rotateX(5deg); }
+        }
+
+        .square {
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .square.light { background: #f0d9b5; }
+        .square.dark { background: #b58863; }
+
+        .piece {
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+            transition: transform 0.3s;
+        }
+
+        .piece:hover {
+            transform: scale(1.2);
+        }
+
+        .floating-pieces {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .fp {
+            position: absolute;
+            font-size: 2.5rem;
+            opacity: 0.15;
+            animation: pieceFloat 8s ease-in-out infinite;
+        }
+
+        .fp:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .fp:nth-child(2) { top: 20%; right: 15%; animation-delay: 2s; }
+        .fp:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }
+        .fp:nth-child(4) { bottom: 10%; right: 10%; animation-delay: 6s; }
+
+        @keyframes pieceFloat {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(10deg); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            background: var(--light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Programs */
+        .programs {
+            background: white;
+        }
+
+        .programs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .program-card {
+            background: linear-gradient(145deg, #ffffff, #f8f9fa);
+            border-radius: 25px;
+            padding: 40px;
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .program-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--accent), var(--gold));
+        }
+
+        .program-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+        }
+
+        .program-card.featured::before {
+            background: linear-gradient(90deg, var(--gold), #e9c46a);
+        }
+
+        .program-card.featured {
+            border-color: var(--gold);
+            transform: scale(1.02);
+        }
+
+        .program-header {
+            margin-bottom: 25px;
+        }
+
+        .program-tag {
+            display: inline-block;
+            background: var(--accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .program-card.featured .program-tag {
+            background: var(--gold);
+            color: var(--primary);
+        }
+
+        .program-header h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .program-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .program-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .program-features li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: var(--text);
+        }
+
+        .program-features li:last-child {
+            border-bottom: none;
+        }
+
+        .program-features li i {
+            color: var(--accent);
+            font-size: 0.9rem;
+        }
+
+        .program-price {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .program-price .price {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: var(--primary);
+        }
+
+        .program-price .period {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .program-btn {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+        }
+
+        .btn-outline:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--primary);
+            border: 2px solid var(--gold);
+        }
+
+        .btn-gold:hover {
+            background: #e9c46a;
+            border-color: #e9c46a;
+        }
+
+        /* Benefits */
+        .benefits {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .benefits .section-header h2,
+        .benefits .section-header p {
+            color: white;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+
+        .benefit-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .benefit-item:hover {
+            background: rgba(255,255,255,0.1);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .benefit-item p {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.7);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background: var(--light);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-text {
+            font-size: 1.05rem;
+            color: var(--text);
+            font-style: italic;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--gold));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h5 {
+            color: var(--primary);
+            font-size: 1rem;
+        }
+
+        .author-info span {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+
+        /* CTA Section */
+        .cta {
+            background: linear-gradient(135deg, var(--accent), #c0392b);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        .cta-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .cta h2 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--accent);
+        }
+
+        .btn-white:hover {
+            background: var(--light);
+            transform: translateY(-3px);
+        }
+
+        .btn-transparent {
+            background: transparent;
+            color: white;
+            border: 2px solid rgba(255,255,255,0.5);
+        }
+
+        .btn-transparent:hover {
+            background: rgba(255,255,255,0.1);
+            border-color: white;
+        }
+
+        /* FAQ */
+        .faq {
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+            padding: 25px 0;
+        }
+
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .faq-question i {
+            transition: transform 0.3s;
+            color: var(--accent);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-top: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand h3 i {
+            color: var(--gold);
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            line-height: 1.7;
+        }
+
+        .footer-links h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .footer-contact p {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+            color: rgba(255,255,255,0.6);
+        }
+
+        .footer-contact i {
+            color: var(--gold);
+            width: 20px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.4);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .badges {
+                justify-content: center;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-visual {
+                display: none;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .cta h2 {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .btn {
+                padding: 14px 25px;
+                font-size: 0.95rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        /* Scroll Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+<base target="_blank">
 </head>
 <body>
-
-<!-- Hero Section -->
-<section class="hero">
-<div class="container">
-
-<h1>Learn Chess from Expert Coaches</h1>
-
-<h2>Online Chess Classes for Kids & Beginners</h2>
-
-<p>
-Improve concentration, memory, and strategic thinking with live interactive classes.
-</p>
-
-<div class="badges">
-<div class="badge">🟢 Beginner Friendly</div>
-<div class="badge">🏆 FIDE Rated Coaches</div>
-<div class="badge">🌍 Online Classes Across India</div>
-</div>
-
-<br>
-
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">🟢 WhatsApp Us</a>
-
-<a href="tel:+91XXXXXXXXXX" class="btn call">📞 Book Free Demo Class</a>
-
-</div>
-</section>
-
-<!-- Why Choose Us -->
-<section>
-<div class="container">
-
-<h2 class="section-title">
-Why Parents Trust Our Chess Academy
-</h2>
-
-<div class="grid">
-
-<div class="card">
-<h3>💻 Live Online Classes</h3>
-</div>
-
-<div class="card">
-<h3>👨‍🏫 Small Batch Size</h3>
-</div>
-
-<div class="card">
-<h3>⭐ Personal Attention</h3>
-</div>
-
-<div class="card">
-<h3>♟ Weekly Practice Sessions</h3>
-</div>
-
-<div class="card">
-<h3>🏆 Tournament Guidance</h3>
-</div>
-
-<div class="card">
-<h3>📜 Certificate After Completion</h3>
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- Programs -->
-<section style="background:#f8fafc;">
-<div class="container">
-
-<h2 class="section-title">
-Programs
-</h2>
-
-<div class="grid">
-
-<div class="card program-card">
-
-<h3>Beginner Batch</h3>
-
-<p>For students with no previous experience.</p>
-
-<br>
-
-<p>✔ 8 Classes / Month</p>
-<p>✔ 60 Minutes per Session</p>
-<p>✔ Interactive Learning</p>
-
-<div class="price">₹3,000/month</div>
-
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">
-WhatsApp Enquiry
-</a>
-
-</div>
-
-
-<div class="card program-card">
-
-<h3>Intermediate Batch</h3>
-
-<p>For students who know the basics.</p>
-
-<br>
-
-<p>✔ Opening Principles</p>
-<p>✔ Tactics Training</p>
-<p>✔ Puzzle Solving</p>
-
-<div class="price">₹4,500/month</div>
-
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">
-WhatsApp Enquiry
-</a>
-
-</div>
-
-
-<div class="card program-card">
-
-<h3>Advanced Training</h3>
-
-<p>For tournament players.</p>
-
-<br>
-
-<p>✔ Personalized Coaching</p>
-<p>✔ Game Analysis</p>
-<p>✔ Endgame Techniques</p>
-
-<div class="price">Custom Pricing</div>
-
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">
-Contact on WhatsApp
-</a>
-
-</div>
-
-</div>
-
-</div>
-</section>
-
-<!-- Benefits -->
-<section class="benefits">
-
-<div class="container">
-
-<h2 class="section-title">
-Benefits of Learning Chess
-</h2>
-
-<div class="grid">
-
-<div class="card">♟ Improves Memory</div>
-
-<div class="card">🎯 Increases Concentration</div>
-
-<div class="card">🧠 Develops Critical Thinking</div>
-
-<div class="card">🏆 Builds Confidence</div>
-
-<div class="card">📚 Better Academic Performance</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Testimonials -->
-<section class="testimonial">
-
-<div class="container">
-
-<h2 class="section-title">
-Student Achievements
-</h2>
-
-<div class="grid">
-
-<div class="review">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>
-"Our child became more focused and confident after joining."
-</p>
-</div>
-
-<div class="review">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>
-"Excellent coaches and very interactive classes."
-</p>
-</div>
-
-<div class="review">
-<h3>⭐⭐⭐⭐⭐</h3>
-<p>
-"Best online chess academy for beginners."
-</p>
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Free Demo -->
-<section class="demo">
-
-<div class="container">
-
-<h2>
-Start Your Chess Journey Today
-</h2>
-
-<p>
-Get a FREE demo class and experience our teaching methodology.
-</p>
-
-<br>
-
-<a href="https://wa.me/91XXXXXXXXXX" class="btn whatsapp">
-🟢 Chat on WhatsApp
-</a>
-
-<a href="tel:+91XXXXXXXXXX" class="btn call">
-📞 Call Now
-</a>
-
-</div>
-
-</section>
-
-<!-- FAQ -->
-<section>
-
-<div class="container">
-
-<h2 class="section-title">
-FAQ
-</h2>
-
-<div class="faq-item">
-<h3>What is the age requirement?</h3>
-<p>Children aged 5 years and above can join.</p>
-</div>
-
-<div class="faq-item">
-<h3>Are classes online?</h3>
-<p>Yes, all classes are conducted live online.</p>
-</div>
-
-<div class="faq-item">
-<h3>How many classes are there each month?</h3>
-<p>8 classes per month.</p>
-</div>
-
-<div class="faq-item">
-<h3>Is there a free demo class?</h3>
-<p>Yes, one free demo class is available.</p>
-</div>
-
-</div>
-
-</section>
-
-<!-- Footer -->
-<footer>
-
-<h2>GoWin Chess Academy</h2>
-
-<p>📱 WhatsApp: +91 XXXXX XXXXX</p>
-
-<p>© 2026 GoWin Chess Academy. All Rights Reserved.</p>
-
-</footer>
-
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fas fa-chess-king"></i>
+                GoWin Chess
+            </div>
+            <ul class="nav-links">
+                <li><a href="#why-us">Why Us</a></li>
+                <li><a href="#programs">Programs</a></li>
+                <li><a href="#benefits">Benefits</a></li>
+                <li><a href="#testimonials">Reviews</a></li>
+                <li><a href="#faq">FAQ</a></li>
+                <li><a href="#contact" class="nav-btn">Enroll Now</a></li>
+            </ul>
+            <button class="mobile-menu-btn"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="floating-pieces">
+            <span class="fp">♟</span>
+            <span class="fp">♞</span>
+            <span class="fp">♜</span>
+            <span class="fp">♛</span>
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Learn Chess from <span>Expert Coaches</span></h1>
+                <p class="subtitle">Online Chess Classes for Kids & Beginners</p>
+                <p class="desc">Improve concentration, memory, and strategic thinking with live interactive classes designed for young minds.</p>
+                <div class="badges">
+                    <div class="badge">
+                        <i class="fas fa-check-circle green"></i>
+                        <span>Beginner Friendly</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-trophy gold"></i>
+                        <span>FIDE Rated Coaches</span>
+                    </div>
+                    <div class="badge">
+                        <i class="fas fa-globe blue"></i>
+                        <span>Online Classes Across India</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                        WhatsApp Us
+                    </a>
+                    <a href="#contact" class="btn btn-demo">
+                        <i class="fas fa-phone"></i>
+                        Book Free Demo Class
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="chess-board">
+                    <!-- Row 1 -->
+                    <div class="square dark">♜</div>
+                    <div class="square light">♞</div>
+                    <div class="square dark">♝</div>
+                    <div class="square light">♛</div>
+                    <div class="square dark">♚</div>
+                    <div class="square light">♝</div>
+                    <div class="square dark">♞</div>
+                    <div class="square light">♜</div>
+                    <!-- Row 2 -->
+                    <div class="square light">♟</div>
+                    <div class="square dark">♟</div>
+                    <div class="square light">♟</div>
+                    <div class="square dark">♟</div>
+                    <div class="square light">♟</div>
+                    <div class="square dark">♟</div>
+                    <div class="square light">♟</div>
+                    <div class="square dark">♟</div>
+                    <!-- Row 3 -->
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <!-- Row 4 -->
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <!-- Row 5 -->
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <!-- Row 6 -->
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <div class="square light"></div>
+                    <div class="square dark"></div>
+                    <!-- Row 7 -->
+                    <div class="square dark">♙</div>
+                    <div class="square light">♙</div>
+                    <div class="square dark">♙</div>
+                    <div class="square light">♙</div>
+                    <div class="square dark">♙</div>
+                    <div class="square light">♙</div>
+                    <div class="square dark">♙</div>
+                    <div class="square light">♙</div>
+                    <!-- Row 8 -->
+                    <div class="square light">♖</div>
+                    <div class="square dark">♘</div>
+                    <div class="square light">♗</div>
+                    <div class="square dark">♕</div>
+                    <div class="square light">♔</div>
+                    <div class="square dark">♗</div>
+                    <div class="square light">♘</div>
+                    <div class="square dark">♖</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us" id="why-us">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Why Choose Us</h2>
+                <p>Why Parents Trust Our Chess Academy</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Live Online Classes</h3>
+                    <p>Interactive real-time sessions with expert coaches using advanced virtual classroom technology.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Small Batch Size</h3>
+                    <p>Limited students per batch ensuring every child gets adequate attention and participation time.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3>Personal Attention</h3>
+                    <p>Individual progress tracking and personalized feedback for each student's unique learning pace.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-chess-board"></i>
+                    </div>
+                    <h3>Weekly Practice Sessions</h3>
+                    <p>Dedicated practice time with puzzles, game analysis, and tactical exercises every week.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Tournament Guidance</h3>
+                    <p>Expert preparation and strategy guidance for participating in chess tournaments and competitions.</p>
+                </div>
+                <div class="feature-card fade-in">
+                    <div class="feature-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Certificate After Completion</h3>
+                    <p>Recognized completion certificates to celebrate your child's achievement and progress.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs -->
+    <section class="programs" id="programs">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Our Programs</h2>
+                <p>Choose the perfect chess program for your child's skill level</p>
+            </div>
+            <div class="programs-grid">
+                <div class="program-card fade-in">
+                    <div class="program-header">
+                        <span class="program-tag">Most Popular</span>
+                        <h3>Beginner Batch</h3>
+                        <p>For students with no previous experience</p>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> 8 Classes / Month</li>
+                        <li><i class="fas fa-check"></i> 60 Minutes per Session</li>
+                        <li><i class="fas fa-check"></i> Interactive Learning</li>
+                        <li><i class="fas fa-check"></i> Basic Rules & Movements</li>
+                    </ul>
+                    <div class="program-price">
+                        <span class="price">₹3,000</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-outline program-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Enquiry
+                    </a>
+                </div>
+
+                <div class="program-card featured fade-in">
+                    <div class="program-header">
+                        <span class="program-tag">Recommended</span>
+                        <h3>Intermediate Batch</h3>
+                        <p>For students who know the basics</p>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Opening Principles</li>
+                        <li><i class="fas fa-check"></i> Tactics Training</li>
+                        <li><i class="fas fa-check"></i> Puzzle Solving</li>
+                        <li><i class="fas fa-check"></i> Game Analysis</li>
+                    </ul>
+                    <div class="program-price">
+                        <span class="price">₹4,500</span>
+                        <span class="period">/month</span>
+                    </div>
+                    <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-gold program-btn">
+                        <i class="fab fa-whatsapp"></i> WhatsApp Enquiry
+                    </a>
+                </div>
+
+                <div class="program-card fade-in">
+                    <div class="program-header">
+                        <span class="program-tag">Premium</span>
+                        <h3>Advanced Training</h3>
+                        <p>For tournament players</p>
+                    </div>
+                    <ul class="program-features">
+                        <li><i class="fas fa-check"></i> Personalized Coaching</li>
+                        <li><i class="fas fa-check"></i> Deep Game Analysis</li>
+                        <li><i class="fas fa-check"></i> Endgame Techniques</li>
+                        <li><i class="fas fa-check"></i> Tournament Prep</li>
+                    </ul>
+                    <div class="program-price">
+                        <span class="price">Custom</span>
+                        <span class="period">Pricing</span>
+                    </div>
+                    <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-outline program-btn">
+                        <i class="fab fa-whatsapp"></i> Contact on WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="benefits" id="benefits">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Benefits of Learning Chess</h2>
+                <p>Chess is more than a game — it's a powerful tool for cognitive development</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">♟</div>
+                    <h4>Improves Memory</h4>
+                    <p>Regular chess practice strengthens both short-term and long-term memory recall abilities.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🎯</div>
+                    <h4>Increases Concentration</h4>
+                    <p>Chess demands focused attention, training children to concentrate deeply for extended periods.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🧠</div>
+                    <h4>Develops Critical Thinking</h4>
+                    <p>Players learn to analyze situations, evaluate options, and make strategic decisions under pressure.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">🏆</div>
+                    <h4>Builds Confidence</h4>
+                    <p>Mastering chess skills and winning games boosts self-esteem and personal growth.</p>
+                </div>
+                <div class="benefit-item fade-in">
+                    <div class="benefit-icon">📚</div>
+                    <h4>Better Academic Performance</h4>
+                    <p>Chess skills transfer to math, reading, and problem-solving in academic subjects.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Student Achievements</h2>
+                <p>Hear what parents and students say about our academy</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Our child became more focused and confident after joining GoWin Chess Academy. The coaches are incredibly patient and skilled."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">R</div>
+                        <div class="author-info">
+                            <h5>Rahul Sharma</h5>
+                            <span>Parent of Arjun, Age 8</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Excellent coaches and very interactive classes. My daughter looks forward to every session. Highly recommended for beginners!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h5>Priya Patel</h5>
+                            <span>Parent of Meera, Age 10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card fade-in">
+                    <div class="stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Best online chess academy for beginners. The structured curriculum and small batch sizes make a huge difference in learning outcomes."</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">K</div>
+                        <div class="author-info">
+                            <h5>Karan Mehta</h5>
+                            <span>Parent of Aryan, Age 7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+        <div class="cta-content">
+            <h2>Start Your Chess Journey Today</h2>
+            <p>Get a FREE demo class and experience our teaching methodology. No commitment required!</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/91XXXXXXXXXX" class="btn btn-white">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="tel:+91XXXXXXXXXX" class="btn btn-transparent">
+                    <i class="fas fa-phone"></i> Call Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq" id="faq">
+        <div class="container">
+            <div class="section-header fade-in">
+                <h2>Frequently Asked Questions</h2>
+                <p>Got questions? We've got answers</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>What is the age requirement?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Children aged 5 years and above can join our chess programs. We have specially designed curricula for different age groups.
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Are classes online?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, all classes are conducted live online through our interactive virtual classroom platform. Students can learn from the comfort of home.
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>How many classes are there each month?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        We offer 8 classes per month (2 classes per week), with each session lasting 60 minutes. Additional practice sessions are also available.
+                    </div>
+                </div>
+                <div class="faq-item fade-in">
+                    <div class="faq-question">
+                        <span>Is there a free demo class?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        Yes, one free demo class is available for all new students. It's a great way to experience our teaching methodology before enrolling.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h3><i class="fas fa-chess-king"></i> GoWin Chess Academy</h3>
+                <p>Empowering young minds through the game of chess. Join India's leading online chess academy and unlock your child's potential.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#why-us">Why Choose Us</a></li>
+                    <li><a href="#programs">Programs</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Programs</h4>
+                <ul>
+                    <li><a href="#programs">Beginner Batch</a></li>
+                    <li><a href="#programs">Intermediate Batch</a></li>
+                    <li><a href="#programs">Advanced Training</a></li>
+                    <li><a href="#contact">Free Demo Class</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contact Us</h4>
+                <p><i class="fab fa-whatsapp"></i> WhatsApp: +91 XXXXX XXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@gowinchess.com</p>
+                <p><i class="fas fa-globe"></i> www.gowinchess.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 GoWin Chess Academy. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(faq => {
+                    faq.classList.remove('active');
+                });
+
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Scroll Animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
-```
 
 
