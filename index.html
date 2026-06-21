@@ -1,148 +1,385 @@
-```html
-<!-- HERO SECTION -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoWin Chess Academy</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#faf8f4;
+    color:#222;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+}
+
+header{
+    background:#fff;
+    padding:20px 0;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:700;
+    color:#d4a017;
+}
+
+.whatsapp-btn{
+    background:#25D366;
+    color:white;
+    text-decoration:none;
+    padding:12px 22px;
+    border-radius:40px;
+    font-weight:600;
+}
+
+.hero{
+    padding:90px 0;
+}
+
+.hero-content{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:50px;
+    flex-wrap:wrap;
+}
+
+.hero-text{
+    flex:1;
+}
+
+.hero-text h1{
+    font-size:55px;
+    line-height:1.2;
+    margin-bottom:20px;
+}
+
+.hero-text p{
+    color:#666;
+    font-size:18px;
+    margin-bottom:30px;
+}
+
+.hero-buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:15px 28px;
+    border-radius:40px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.primary{
+    background:#d4a017;
+    color:white;
+}
+
+.secondary{
+    background:#25D366;
+    color:white;
+}
+
+.hero-image{
+    flex:1;
+}
+
+.hero-image img{
+    width:100%;
+    border-radius:20px;
+}
+
+.section{
+    padding:80px 0;
+}
+
+.title{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.title h2{
+    font-size:40px;
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.card h3{
+    margin-bottom:15px;
+}
+
+.card p{
+    color:#666;
+}
+
+.pricing{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.price-card{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    text-align:center;
+}
+
+.price-card h3{
+    font-size:30px;
+}
+
+.price{
+    color:#d4a017;
+    font-size:40px;
+    margin:20px 0;
+    font-weight:700;
+}
+
+.price-card ul{
+    list-style:none;
+    margin-bottom:30px;
+}
+
+.price-card li{
+    margin:15px 0;
+}
+
+.cta{
+    background:#222;
+    color:white;
+    text-align:center;
+    padding:100px 20px;
+}
+
+.cta h2{
+    font-size:45px;
+    margin-bottom:20px;
+}
+
+footer{
+    background:#111;
+    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.whatsapp-float{
+    position:fixed;
+    right:25px;
+    bottom:25px;
+    background:#25D366;
+    width:65px;
+    height:65px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:32px;
+    text-decoration:none;
+    box-shadow:0 8px 25px rgba(0,0,0,.3);
+}
+
+@media(max-width:768px){
+
+.hero-text h1{
+    font-size:38px;
+}
+
+.title h2{
+    font-size:32px;
+}
+
+.cta h2{
+    font-size:34px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+<nav>
+
+<div class="logo">
+♟ GoWin Chess Academy
+</div>
+
+<a href="https://wa.me/919876543210" class="whatsapp-btn">
+WhatsApp Us
+</a>
+
+</nav>
+</div>
+</header>
+
 <section class="hero">
-    <div class="overlay"></div>
+<div class="container">
 
-    <div class="hero-content">
+<div class="hero-content">
 
-        <div class="badge">
-            ⭐ Rated 4.9/5 by Parents
-        </div>
+<div class="hero-text">
 
-        <h1>
-            Unlock Your Child's <span>Strategic Potential</span> Through Chess ♟️
-        </h1>
+<h1>
+Learn Chess From Expert Coaches
+</h1>
 
-        <p>
-            Join India's Premium Online Chess Academy and help your child develop
-            concentration, confidence and winning strategies.
-        </p>
+<p>
+Online chess classes for kids and beginners. Improve concentration, memory and strategic thinking with live interactive classes.
+</p>
 
-        <div class="stats">
-            <div class="stat">
-                <h2>500+</h2>
-                <span>Students</span>
-            </div>
+<div class="hero-buttons">
 
-            <div class="stat">
-                <h2>1000+</h2>
-                <span>Classes Conducted</span>
-            </div>
+<a href="https://wa.me/919876543210" class="btn secondary">
+Book Free Demo
+</a>
 
-            <div class="stat">
-                <h2>10+</h2>
-                <span>Years Experience</span>
-            </div>
-        </div>
+<a href="tel:+919876543210" class="btn primary">
+Call Now
+</a>
 
-        <div class="hero-buttons">
-            <a href="tel:+919876543210" class="call-btn">
-                📞 Call Now
-            </a>
+</div>
 
-            <a href="https://wa.me/919876543210" class="whatsapp-btn">
-                💬 WhatsApp Now
-            </a>
-        </div>
+</div>
 
-    </div>
+<div class="hero-image">
 
-    <div class="hero-image">
-        <img src="chess-king.png">
-    </div>
+<img src="https://images.unsplash.com/photo-1586165368502-1bad197a6461?w=1000"
+alt="Chess">
 
+</div>
+
+</div>
+
+</div>
 </section>
 
+<section class="section">
 
-<!-- WHY CHOOSE US -->
+<div class="container">
 
-<section class="why-us">
-
-<h2>Why Parents Choose Go Win Chess Academy</h2>
+<div class="title">
+<h2>Why Choose GoWin Chess Academy?</h2>
+</div>
 
 <div class="cards">
 
 <div class="card">
-🧠
-<h3>Improve Concentration</h3>
-<p>Boost memory and focus with structured chess training.</p>
+<h3>🏆 Expert Coaches</h3>
+<p>Learn from experienced and professional chess trainers.</p>
 </div>
 
 <div class="card">
-🏆
-<h3>Tournament Preparation</h3>
-<p>Prepare students for district, state and national events.</p>
+<h3>🎯 Small Batches</h3>
+<p>Personal attention for every student.</p>
 </div>
 
 <div class="card">
-👨‍🏫
-<h3>Expert Coaches</h3>
-<p>Learn from experienced and passionate trainers.</p>
+<h3>💻 Online Classes</h3>
+<p>Learn from anywhere with live interactive sessions.</p>
 </div>
 
 <div class="card">
-🌎
-<h3>Online Classes</h3>
-<p>Attend classes from anywhere with live interaction.</p>
+<h3>📜 Certificate</h3>
+<p>Completion certificate after finishing the course.</p>
+</div>
+
 </div>
 
 </div>
 
 </section>
 
+<section class="section">
 
-<!-- PRICING -->
+<div class="container">
 
-<section class="pricing">
+<div class="title">
+<h2>Our Programs</h2>
+</div>
 
-<h2>Choose Your Plan</h2>
-
-<div class="price-container">
+<div class="pricing">
 
 <div class="price-card">
 
-<div class="popular-tag">
-Most Popular
+<h3>Beginner Batch</h3>
+
+<div class="price">
+₹3,000
 </div>
 
-<h3>Group Classes</h3>
-
-<h1>₹3,000</h1>
-
-<span>Per Month</span>
-
 <ul>
-<li>✔ 8 Classes Per Month</li>
-<li>✔ Interactive Live Sessions</li>
-<li>✔ Tournament Guidance</li>
-<li>✔ Practice Materials</li>
-<li>✔ Progress Tracking</li>
+<li>8 Classes / Month</li>
+<li>Live Online Sessions</li>
+<li>Practice Worksheets</li>
+<li>Doubt Support</li>
 </ul>
 
-<a href="https://wa.me/919876543210" class="enroll-btn">
+<a href="https://wa.me/919876543210" class="btn secondary">
 Enroll Now
 </a>
 
 </div>
 
+<div class="price-card">
 
-<div class="price-card premium">
+<h3>Advanced Training</h3>
 
-<h3>Individual Classes</h3>
-
-<h1>Custom</h1>
-
-<span>Flexible Pricing</span>
+<div class="price">
+Custom
+</div>
 
 <ul>
-<li>✔ One-to-One Coaching</li>
-<li>✔ Personalized Learning</li>
-<li>✔ Flexible Timing</li>
-<li>✔ Advanced Strategies</li>
-<li>✔ Dedicated Mentor</li>
+<li>1-to-1 Coaching</li>
+<li>Game Analysis</li>
+<li>Tournament Preparation</li>
+<li>Flexible Schedule</li>
 </ul>
 
-<a href="tel:+919876543210" class="enroll-btn">
+<a href="https://wa.me/919876543210" class="btn secondary">
 Contact Us
 </a>
 
@@ -150,161 +387,47 @@ Contact Us
 
 </div>
 
-</section>
-
-
-<!-- ACHIEVEMENTS -->
-
-<section class="achievement">
-
-<h2>Student Achievements 🏆</h2>
-
-<div class="achievement-box">
-
-<div class="ach-card">
-🥇
-<h3>State Level Winners</h3>
-</div>
-
-<div class="ach-card">
-🏆
-<h3>Tournament Champions</h3>
-</div>
-
-<div class="ach-card">
-⭐
-<h3>FIDE Rated Players</h3>
-</div>
-
-<div class="ach-card">
-🎯
-<h3>National Participants</h3>
-</div>
-
 </div>
 
 </section>
 
+<section class="cta">
 
-<!-- TESTIMONIALS -->
-
-<section class="reviews">
-
-<h2>What Parents Say ❤️</h2>
-
-<div class="review-slider">
-
-<div class="review-card">
-⭐⭐⭐⭐⭐
+<h2>
+Start Your Chess Journey Today
+</h2>
 
 <p>
-"My daughter won her first tournament after joining Go Win Chess Academy."
+Get a FREE Demo Class and experience our teaching methodology.
 </p>
 
-<h4>Priya S.</h4>
+<br><br>
 
-</div>
-
-
-<div class="review-card">
-⭐⭐⭐⭐⭐
-
-<p>
-"Professional coaching and amazing support. Highly recommended."
-</p>
-
-<h4>Arun Kumar</h4>
-
-</div>
-
-
-<div class="review-card">
-⭐⭐⭐⭐⭐
-
-<p>
-"The best investment we made for our child."
-</p>
-
-<h4>Meena R.</h4>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- FAQ -->
-
-<section class="faq">
-
-<h2>Frequently Asked Questions</h2>
-
-<div class="faq-box">
-
-<h3>What age groups do you teach?</h3>
-<p>Kids and adults of all levels.</p>
-
-<h3>Are classes online?</h3>
-<p>Yes, all classes are conducted live online.</p>
-
-<h3>Do you provide a free demo class?</h3>
-<p>Yes, every student can attend a free demo class.</p>
-
-<h3>How many classes are included?</h3>
-<p>8 classes per month in the group plan.</p>
-
-</div>
-
-</section>
-
-
-<!-- FINAL CTA -->
-
-<section class="final-cta">
-
-<h1>
-Give Your Child The Winning Move ♟️
-</h1>
-
-<p>
-Limited Seats Available For This Month
-</p>
-
-<div class="hero-buttons">
-
-<a href="tel:+919876543210" class="call-btn">
-📞 Call Now
+<a href="https://wa.me/919876543210" class="btn secondary">
+Chat on WhatsApp
 </a>
 
-<a href="https://wa.me/919876543210" class="whatsapp-btn">
-💬 WhatsApp Now
-</a>
-
-</div>
-
 </section>
 
+<footer>
 
-<!-- FLOATING BUTTONS -->
+<h3>GoWin Chess Academy</h3>
 
-<div class="floating-buttons">
+<br>
 
-<a href="tel:+919876543210" class="floating-call">
-📞
-</a>
+<p>
+📞 +91 9876543210
+</p>
 
-<a href="https://wa.me/919876543210" class="floating-whatsapp">
+<p>
+📧 info@gowinchessacademy.com
+</p>
+
+</footer>
+
+<a href="https://wa.me/919876543210" class="whatsapp-float">
 💬
 </a>
 
-</div>
-```
-
-
-
-
-
-
-
-
+</body>
+</html>
