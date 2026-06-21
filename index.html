@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chess Academy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#f7f7f7;
+color:#222;
+}
+
+section{
+padding:80px 8%;
+}
+
+h2{
+text-align:center;
+margin-bottom:50px;
+font-size:38px;
+}
+
+/* Navbar */
+
+header{
+background:#f2d47a;
+}
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 8%;
+}
+
+.logo{
+font-size:28px;
+font-weight:700;
+}
+
+nav ul{
+display:flex;
+gap:30px;
+list-style:none;
+}
+
+nav ul li a{
+text-decoration:none;
+color:#000;
+font-weight:500;
+}
+
+.login-btn{
+padding:12px 25px;
+border:none;
+background:white;
+cursor:pointer;
+border-radius:8px;
+}
+
+/* Hero */
+
+.hero{
+background:#f2d47a;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:50px;
+}
+
+.hero-text{
+max-width:550px;
+}
+
+.hero h1{
+font-size:60px;
+line-height:1.2;
+margin-bottom:25px;
+}
+
+.hero p{
+color:#555;
+margin-bottom:30px;
+}
+
+.btn{
+display:inline-block;
+padding:15px 35px;
+background:#111;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.hero-image img{
+width:100%;
+max-width:450px;
+}
+
+/* Why Us */
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+}
+
+.card{
+padding:35px;
+border-radius:20px;
+}
+
+.yellow{
+background:#f2d47a;
+}
+
+.blue{
+background:#c8ecec;
+}
+
+/* Courses */
+
+.pricing{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.plan{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.1);
+text-align:center;
+}
+
+.plan h1{
+color:#009688;
+margin:20px 0;
+}
+
+.plan ul{
+list-style:none;
+margin:25px 0;
+}
+
+.plan ul li{
+margin-bottom:15px;
+}
+
+.plan button{
+padding:15px 30px;
+background:#009688;
+border:none;
+color:white;
+border-radius:10px;
+cursor:pointer;
+}
+
+.recommended{
+border:3px solid #009688;
+}
+
+/* Grandmasters */
+
+.coaches{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+text-align:center;
+}
+
+.coach img{
+width:200px;
+height:200px;
+border-radius:50%;
+object-fit:cover;
+margin-bottom:20px;
+}
+
+/* Testimonials */
+
+.testimonials{
+background:#c8ecec;
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:30px;
+}
+
+.testimonial{
+background:white;
+padding:30px;
+border-radius:20px;
+}
+
+/* FAQ */
+
+.faq-item{
+margin-bottom:20px;
+}
+
+.accordion{
+width:100%;
+padding:20px;
+font-size:18px;
+background:white;
+border:none;
+text-align:left;
+cursor:pointer;
+border-radius:10px;
+}
+
+.panel{
+display:none;
+padding:20px;
+background:#eee;
+margin-top:5px;
+border-radius:10px;
+}
+
+/* Blog */
+
+.blogs{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.blog{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+/* Footer */
+
+footer{
+background:white;
+padding:60px 8%;
+}
+
+.footer{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:40px;
+}
+
+input{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:1px solid #ccc;
+border-radius:10px;
+}
+
+.subscribe{
+margin-top:15px;
+padding:15px 30px;
+background:black;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+@media(max-width:768px){
+
+nav ul{
+display:none;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero h1{
+font-size:40px;
+}
+
+}
+</style>
+</head>
+<body>
+
+<header>
+
+<nav>
+
+<div class="logo">
+♔ Chess Academy
+</div>
+
+<ul>
+<li><a href="#">Home</a></li>
+<li><a href="#">Courses</a></li>
+<li><a href="#">Grandmasters</a></li>
+<li><a href="#">Testimonials</a></li>
+<li><a href="#">FAQ</a></li>
+<li><a href="#">Blogs</a></li>
+</ul>
+
+<button class="login-btn">Login</button>
+
+</nav>
+
+<section class="hero">
+
+<div class="hero-text">
+<h1>World's #1 Chess Curriculum Created by Grandmasters</h1>
+
+<p>
+Learn chess from experienced coaches and become a stronger player through structured lessons and tournaments.
+</p>
+
+<a href="#" class="btn">
+Book a Demo Class
+</a>
+</div>
+
+<div class="hero-image">
+<img src="https://images.unsplash.com/photo-1580541832626-2a7131ee809f?w=700" alt="">
+</div>
+
+</section>
+
+</header>
+
+
+<section>
+
+<h2>Why Us</h2>
+
+<div class="cards">
+
+<div class="card yellow">
+<h3>Who We Are</h3>
+<p>
+Professional chess training for kids and adults with expert coaches.
+</p>
+</div>
+
+<div class="card blue">
+<h3>Educational Approach</h3>
+<p>
+Interactive learning methods designed by Grandmasters.
+</p>
+</div>
+
+<div class="card blue">
+<h3>Engaging Experience</h3>
+<p>
+Live classes, analysis sessions and tournaments.
+</p>
+</div>
+
+<div class="card yellow">
+<h3>Community & Events</h3>
+<p>
+Regular competitions and a thriving chess community.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Courses</h2>
+
+<div class="pricing">
+
+<div class="plan">
+<h3>1 Month</h3>
+<h1>₹2999</h1>
+
+<ul>
+<li>8 Classes</li>
+<li>Live Sessions</li>
+<li>Certificate</li>
+</ul>
+
+<button>Curriculum</button>
+</div>
+
+<div class="plan recommended">
+<h3>3 Months</h3>
+<h1>₹6675</h1>
+
+<ul>
+<li>24 Classes</li>
+<li>Recorded Sessions</li>
+<li>Certificate</li>
+</ul>
+
+<button>Curriculum</button>
+</div>
+
+<div class="plan">
+<h3>6 Months</h3>
+<h1>₹11700</h1>
+
+<ul>
+<li>48 Classes</li>
+<li>Grandmaster Guidance</li>
+<li>Certificate</li>
+</ul>
+
+<button>Curriculum</button>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Our Grandmasters</h2>
+
+<div class="coaches">
+
+<div class="coach">
+<img src="https://randomuser.me/api/portraits/men/11.jpg">
+<h3>Vishnu Prasanna</h3>
+<p>Grandmaster</p>
+</div>
+
+<div class="coach">
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+<h3>Akash Ganesan</h3>
+<p>International Master</p>
+</div>
+
+<div class="coach">
+<img src="https://randomuser.me/api/portraits/women/55.jpg">
+<h3>Priya Panneer</h3>
+<p>Woman International Master</p>
+</div>
+
+<div class="coach">
+<img src="https://randomuser.me/api/portraits/women/42.jpg">
+<h3>Raghavi Vishnu</p>
+<p>Women International Master</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="testimonials">
+
+<h2>Testimonials</h2>
+
+<div class="testimonial-grid">
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>My son improved tremendously after joining.</p>
+<h4>Mr. Vijay</h4>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>Excellent coaches and interactive sessions.</p>
+<h4>Mrs. Arwetti</h4>
+</div>
+
+<div class="testimonial">
+⭐⭐⭐⭐⭐
+<p>Highly recommended for serious chess learners.</p>
+<h4>Mr. Senthil</h4>
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<button class="accordion">Do you offer online classes?</button>
+<div class="panel">
+<p>Yes, classes are conducted live online.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="accordion">Do you conduct tournaments?</button>
+<div class="panel">
+<p>Yes, students regularly participate in tournaments.</p>
+</div>
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Recent Blogs</h2>
+
+<div class="blogs">
+
+<div class="blog">
+<h3>Life Lessons From Chess</h3>
+<p>Discover how chess develops discipline and critical thinking.</p>
+</div>
+
+<div class="blog">
+<h3>Improve Your Opening Strategy</h3>
+<p>Learn the best opening principles for beginners.</p>
+</div>
+
+<div class="blog">
+<h3>Best Summer Chess Camp</h3>
+<p>Train with experts and improve your rating.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<div class="footer">
+
+<div>
+<h3>Chess Academy</h3>
+<p>Empowering Future Grandmasters.</p>
+</div>
+
+<div>
+<h3>Quick Links</h3>
+<p>Home</p>
+<p>Courses</p>
+<p>Grandmasters</p>
+<p>Blogs</p>
+</div>
+
+<div>
+<h3>Subscribe to Newsletter</h3>
+
+<input type="email" placeholder="Enter Email">
+
+<button class="subscribe">
+Subscribe
+</button>
+
+</div>
+
+</div>
+
+</footer>
+
+
+<script>
+const accordion=document.querySelectorAll(".accordion");
+
+accordion.forEach(item=>{
+item.addEventListener("click",()=>{
+
+let panel=item.nextElementSibling;
+
+if(panel.style.display==="block"){
+panel.style.display="none";
+}
+else{
+panel.style.display="block";
+}
+
+});
+});
+</script>
+
+</body>
+</html>
